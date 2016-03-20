@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Les 2 - Schaakbord</title>
+		<meta name="description" content="Mobile2 Roelands Antony Schaakbord">
+		<meta name="author" content="Roelands Antony">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<style>
+			body {
+				background-color: grey;
+				color: white;
+			}
+			h1 {
+				padding-top: 1em;
+			}
+
+			.vakjezwart {
+				width: 2em;
+				height: 2em;
+				background-color: black;
+				float: left;
+			}
+			.vakjewit {
+				width: 2em;
+				height: 2em;
+				background-color: white;
+				float: left;
+			}
+
+			#dambord {
+				width: 16em;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<h1>Oefening 2: Schaakbord</h1>
+		<div id="dambord">
+			<script type="text/javascript">
+				function Dambord() {
+					for (var aantal = 0; aantal < 4; aantal++) {
+						for (var i = 0; i < 4; i++) {
+							document.write("<div class='vakjezwart'></div>")
+							document.write("<div class='vakjewit'></div>")
+						}
+						//document.write("<br><br>");
+
+						for (var j = 0; j < 4; j++) {
+							document.write("<div class='vakjewit'></div>")
+							document.write("<div class='vakjezwart'></div>")
+						}
+						//document.write("<br><br>");
+					}
+				};
+
+				var bord = new Dambord();
+			</script>
+		</div>
+	</body>
+</html>

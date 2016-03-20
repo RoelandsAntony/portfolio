@@ -1,0 +1,60 @@
+@font-face {
+	font-family: calibrireg;
+	src: url('fonts/calbri.eot?') format('eot'), url('fonts/calibri-webfont.woff') format('woff'), url('fonts/calirbi-webfont.svg') format('svg'), url('fonts/calibri.ttf') format('truetype');
+	font-weight: normal;
+	
+}
+
+@font-face {
+	font-family: calibribold;
+	src: url('fonts/calibrib.eot?') format('eot'), url('fonts/calibrib-webfont.woff') format('woff'), url('fonts/calibrib-webfont.svg') format('svg'), url('fonts/calibrib.ttf') format('truetype');
+}
+
+
+
+body {
+	color: #FFE6CC;
+	background: url(img/b55.png) repeat ;
+		font-family: calibrireg, "arial", "serif", "sans-serif", "cursive", "fantasy", "monospace";
+	color: #1D221A;
+}
+
+h1, h2 {
+	text-align: center; /* control-spatie geeft de mogelijkheden weer */
+	color: #1D221A;
+	/* text-decoration: underline; */
+}
+
+p {
+	text-align: center;
+	color: #016A1D;
+}
+
+a:link{color: #153252;
+	   text-decoration: none;} /* maak de kleur van de hyperlink groen, of iets anders. */
+a:visited{color:red;
+	      text-decoration: underline;} /* indien je al geklikt hebt op de link, wordt 'ie rood! */
+a:hover{color:blue;
+	    text-decoration: underline;} /* ga met de muis over de hyperlinks: kijk naar de kleur! */
+a:active{color:blue;
+		 text-decoration: none;} /* de weergave van de link op het moment dat 'ie wordt ingedrukt. */
+
+#bullet {
+ list-style-image: url(img/next.gif)
+}
+
+div.kader {
+	background: #ffffff;
+	color: black;
+	/*width: 30% */
+	margin: 1%;
+	text-align: center;
+	/* een afgeronde rand */
+	-moz-border-radius: 15px;/*FF*/
+	border-radius : 15px;
+	padding: 2%;
+	/* een schaduw achter het element */
+	-moz-box-shadow: 5px 5px 5px #1D221A; /*FF*/
+	-webkit-box-shadow: 5px 5px 5px #1D221A; /*Safari*/
+	box-shadow: 5px 5px 5px#1D221A;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>HTML</title>
+		<meta name="description" content="">
+		<meta name="author" content="Antony Roelands">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="../js/jquery-ui.js"></script>
+	</head>
+
+	<body>
+		<!--     <div>
+		<header>
+		<h1>HTML</h1>
+		</header>
+		<nav>
+		<p>
+		<a href="/">Home</a>
+		</p>
+		<p>
+		<a href="/contact">Contact</a>
+		</p>
+		</nav>      -->
+
+		<div>
+			<ul>
+				<li>
+					Berlijn
+				</li>
+				<li>
+					Amsterdam
+				</li>
+				<li>
+					Brussel
+				</li>
+				<li>
+					Londen
+				</li>
+				<li>
+					Matchu Pichu
+				</li>
+			</ul>
+			
+			<span id="Weer">Weer 3: </span>
+
+		</div>
+
+		<script type="text/javascript">
+			var plaats = $("li").last().detach();
+			var clone = $("li:nth-child(3)").clone();
+
+			//var plaats5to1 =$(("li").last()).before(("li").first()); //werkt niet
+			
+			//var plaats2 = $("li").last().attach(); //dit om deze lijn ergens bij te zetten, natuurlijk.
+			
+			$("ul").prepend(plaats);
+			
+			var aantal = $("li").length; //Hoeveel steden zijn er?
+			$("body").append("Aantal plaatsen: " + aantal);
+			$("div").prepend("Aantal plaatsen: " + aantal);
+
+			//var temp = Math.floor(Math.random() * 30) - 20; //Deze 3 lijnen zouden een random temperatuur geven MAAR dezelfde temperatuur aan alle steden.
+			//$("Temperatuur = " + temp).appendTo("li");
+			//$("li").append(" -- Temperatuur = " + temp);
+			
+			$("li").each(function(index){ //Zet een random temperatuur na elke stad
+			$(this).append(" -- Temperatuur = " + (Math.floor(Math.random() * 30) - 20))});
+			
+			//$("section").append("Weer 3: " + clone); //Bonusvraag: plaats het weer van stad 3 erna
+			$("li:nth-child(3)").clone(true).insertAfter("span").contents().unwrap();
+			//$("#Weer").after(("li:nth-child(3)").clone());
+ 
+			console.log("console.log = " + aantal);
+			
+		</script>
+
+		</footer>
+		</div>
+	</body>
+</html>

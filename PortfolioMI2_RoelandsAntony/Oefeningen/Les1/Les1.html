@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>MI2 Les1</title>
+		<meta name="description" content="">
+		<meta name="author" content="Antony Roelands">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<style>
+			body {
+				background-color: grey;
+				color: white;
+			}
+			h1 {
+				padding-top: 1em;
+			}
+		</style>
+
+	</head>
+	<body>
+		<h1>Oefening 1: Rekenmachine</h1>
+		<p>
+			<script type="text/javascript">
+				var waarde1 = 5 * 12;
+				var waarde2 = 10;
+				document.write("Optelling:" + (waarde1 + waarde2) + "<br> Aftrekking:" + (waarde1 - waarde2));
+			</script>
+		</p>
+
+		<p>
+			<script type="text/javascript">
+				var invoer = new Object();
+				invoer.waarde1 = 2;
+				invoer.waarde2 = 6;
+				document.write("som : " + invoer.waarde1 + invoer.waarde2 + '<br>');
+				document.write("som : " + (invoer.waarde1 + invoer.waarde2));
+			</script>
+		</p>
+
+		<p>
+			<script type="text/javascript">
+				function Rekenmachine() {
+					this.waarde1 = 10;
+					this.waarde2 = 5;
+
+					this.Optelling = function() {
+						return this.waarde1 + this.waarde2;
+					}
+					this.Aftrekking = function() {
+						return this.waarde1 - this.waarde2;
+					}
+					this.Vermenigvuldiging = function() {
+						return this.waarde1 * this.waarde2;
+					}
+					this.Deling = function() {
+						return this.waarde1 / this.waarde2;
+					}
+				}
+
+				var reken = new Rekenmachine();
+				var uitkomst = reken.Optelling();
+				document.write("Som:" + uitkomst + "<br>");
+				uitkomst = reken.Aftrekking();
+				document.write("Verschil:" + uitkomst + "<br>");
+				uitkomst = reken.Vermenigvuldiging();
+				document.write("Product:" + uitkomst + "<br>");
+				uitkomst = reken.Deling();
+				document.write("Quotiënt:" + uitkomst + "<br>");
+			</script>
+		</p>
+
+	</body>
+</html>
