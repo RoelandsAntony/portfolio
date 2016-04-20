@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>HTML</title>
+		<meta name="description" content="">
+		<meta name="author" content="Roelands Antony">
+		<script src="../jquery-1.11.2.js"></script>
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<style>
+			#fotos div.frame {
+				float: left;
+				width: 300px;
+				height: 240px;
+				background: #ccc;
+				margin: 10px;
+				padding: 0px;
+			}
+			#fotos .image {
+				width: 300px;
+				height: 210px;
+				overflow: hidden;
+				background: #fff;
+			}
+
+			#fotos .image img {
+				width: 100%;
+			}
+			#fotos h2 {
+				font-family: Arial, sans-serif;
+				color: #333;
+				font-size: 9EM;
+			}
+
+			p {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>jQuery de basis</h1>
+		<p>
+			zoekterm
+			<input type="text" id="zoekterm" />
+			<input type="button" value="zoek" id="zoek"  onclick="zoekfotos()"/>
+			<br/>
+			<strong id="titel"></strong>
+
+		</p>
+		<div id="fotos"></div>
+		<p>
+			<a id="bron" href=""> </a>
+		</p>
+	</body>
+</html>
+<script>
+	function zoekfotos() {
+
+
+		var zoekterm = $("zoekterm").val();
+		var flickURL = "http://api.flickr.com/services/feeds/" + "/photos_public.gne?format=json&tags=";
+		$.ajax({
+			dataType : 'json',
+			type : "GET",
+			url : flickURL + zoekterm + "&jsoncallback=?",
+			success : verwerkJSON
+
+		});
+	}
+
+	// Verwerken van het JSON resultaat enkel wanneer pagina met "success" geladen wordt.
+
+	function verwerkJSON(response) {
+		$('#fotos').html("");
+		for (var i = 0; i < response.items.lenght; i++) {
+			var foto = response.items[i];
+			var html = "<div class='frame'><div class='image'><a href='" + foto.link + "'><img scr='" + foto.media.m + "' alt='" + foto.title + "'/></a></div></h2>" + foto.title + "</h2></div>";
+			$("#fotos").append(html);
+
+		}
+		$("$bron").attr("href", reponse.link).text("Bron : Flikcr");
+		$("title").text(respone.title);
+	}
+
+</script>
+

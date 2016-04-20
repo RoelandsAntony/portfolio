@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>HTML</title>
+		<meta name="description" content="">
+		<meta name="author" content="Antony Roelands">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+		<style type="text/css">
+			ul.fotolijst {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+			ul.fotolijst li {
+				float: left;
+				width: 100px;
+			}
+			ul.fotolijst li img {
+				border: none;
+			}
+			#galerij {
+				text-align: center;
+			}
+			#frame {
+				width: 512px;
+				height: 342px;
+				margin: 10px 0px 10px 0px;
+				border: 3px solid #ccc;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>jQuery - de Basis - Fotogalerij</h1>
+			</header>
+			<div id="galerij">
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		
+			var fotoArray = ["f5133cb1705d259b32e084b0c1e531e5_large.jpg", "4572cf86008755df12e3f13e8caf4f0a_large.jpg", "a9c5493274fbef70b51289dd47cc86b3_large.jpg", "95f700eb7d067cf3090de50535556554_large.jpg", "bfa91d008c03e910c864484c14412d50_large.jpg", "6a828e18be6a567567f304350ee14cf7_large.jpg"];
+
+			var urlPrefix = "http://img.mobypicture.com/";
+
+			$(document).ready(function() {
+				$("#galerij").html("<div id ='frame'><img /></div>" + "<ul class='fotolijst'></ul>");
+			
+
+			$("#frame img").attr("src", urlPrefix + fotoArray[0]);
+
+			for (var i = 0; i < fotoArray.length; i++) {
+				var foto = fotoArray[i];
+				var bron = urlPrefix + foto;
+				//var thumb = bron.replace(".jpg", "_tl.jpg");
+				var thumb = bron.replace("_large.jpg", "_square.jpg");
+				$(".fotolijst").append("<li><a href= '#' rel='" + i + "'><img src='" + thumb + "' /></a></li> ");
+			}
+			
+			
+
+			$(".fotolijst a").on("click", function() {
+				var index = parseInt($(this).attr("rel"));
+				var bron = urlPrefix + fotoArray[index];
+				$("#frame").html("<img />");
+				$("#frame img").attr("src", bron);
+			});
+
+			$("#frame").css("background-image", "url(" + $("#frame img").attr("src") + ")");
+			$("#frame").html("<img style='display:none;' />");
+			console.log("Hallo");
+			
+			});
+
+			/*
+			 var fotoArray=["f5133cb1705d259b32e084b0c1e531e5_large.jpg", "4572cf86008755df12e3f13e8caf4f0a_large.jpg", "a9c5493274fbef70b51289dd47cc86b3_large.jpg", "95f700eb7d067cf3090de50535556554_large.jpg", "bfa91d008c03e910c864484c14412d50_large.jpg", "6a828e18be6a567567f304350ee14cf7_large.jpg"
+			 ];
+
+			 var urlPrefix = "http://img.mobypicture.com/";
+
+			 $(document).ready(function() {
+			 $("#galerij").html("<div id ='frame'><img /></div>" + "<ul class='fotolijst'></ul>");
+
+			 $("#frame img").attr("src", urlPrefix + fotoArray[0]);
+
+			 for (var i = 0; i < fotoArray.length; i++) {
+			 var foto = fotoArray[i];
+			 var bron = urlPrefix + foto;
+			 var thumb = bron.replace("_large.jpg", "_square.jpg");
+			 $(".fotolijst").append("<li><a href= '#' rel='" + i + "'><img src='" + thumb + "' /> </a></li>  ");
+			 }
+
+			 });
+
+			 $(".fotolijst a").on("click", function () {
+			 var index = parseInt($(this).attr("rel"));
+			 var bron = urlPrefix + fotoArray[index];
+			 $("#frame").html("<img />");
+			 $("#frame img").attr("src", bron);
+
+			 $("#frame").css("background-image", "url(" + $("#frame img").attr("src") + ")");
+			 $("#frame").html("<img style='display:none;' />");
+
+			 }); 
+			 */
+		</script>
+	</body>
+</html>
